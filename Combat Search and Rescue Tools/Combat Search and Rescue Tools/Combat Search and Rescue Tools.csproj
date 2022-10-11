@@ -380,6 +380,9 @@
     <AddInContent Include="Toolboxes\toolboxes\layer_templates\template_point.lyrx" />
     <AddInContent Include="Toolboxes\toolboxes\layout_templates\Rescue GRG.pagx" />
   </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="EULA.rtf" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--
   PackageAction can be:

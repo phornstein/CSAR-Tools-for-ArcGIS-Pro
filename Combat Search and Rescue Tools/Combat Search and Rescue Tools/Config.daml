@@ -7,7 +7,7 @@
 
   <AddInInfo id="{771ace14-71e9-4a6f-a17d-7aaf70afcc59}" version="1.0" desktopVersion="2.9">
     <Name>Combat Search and Rescue Tools</Name>   
-    <Description>Combat_Search_and_Rescue_Tools description</Description>
+    <Description>CSAR Tools are a series of geoprocessing tools to enable rapid processing Combat Search and Rescue analysis. See EULA for licensing information.</Description>
     <Image>Images\AddinDesktop32.png</Image>
     <Author>Esri Defense Solution Engineers</Author>
     <Company>Esri</Company>
