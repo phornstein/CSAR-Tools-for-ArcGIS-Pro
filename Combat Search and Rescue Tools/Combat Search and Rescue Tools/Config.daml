@@ -18,7 +18,7 @@
   </AddInInfo>
 
   <modules>
-    <insertModule id="Combat_Search_and_Rescue_Tools_Module" className="CSARToolsModule" autoLoad="false" caption="CSAR Tools">
+    <insertModule id="Combat_Search_and_Rescue_Tools_Module" className="CSARToolsModule" autoLoad="true" caption="CSAR Tools">
       <!-- uncomment to have the control hosted on a separate tab-->
       <tabs>
         <!--<tab id="Combat_Search_and_Rescue_Tools_Tab1" caption="New Tab">
