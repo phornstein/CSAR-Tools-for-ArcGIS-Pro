@@ -1,0 +1,10 @@
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\bin\Debug\net6.0-windows\Combat Search and Rescue Tools.deps.json
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\bin\Debug\net6.0-windows\Combat Search and Rescue Tools.dll
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\bin\Debug\net6.0-windows\Combat Search and Rescue Tools.pdb
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\obj\Debug\net6.0-windows\Combat Search and Rescue Tools.csproj.AssemblyReference.cache
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\obj\Debug\net6.0-windows\Combat Search and Rescue Tools.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\obj\Debug\net6.0-windows\Combat Search and Rescue Tools.csproj.CoreCompileInputs.cache
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\obj\Debug\net6.0-windows\Combat Search and Rescue Tools.dll
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\obj\Debug\net6.0-windows\refint\Combat Search and Rescue Tools.dll
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\obj\Debug\net6.0-windows\Combat Search and Rescue Tools.pdb
+C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\obj\Debug\net6.0-windows\ref\Combat Search and Rescue Tools.dll

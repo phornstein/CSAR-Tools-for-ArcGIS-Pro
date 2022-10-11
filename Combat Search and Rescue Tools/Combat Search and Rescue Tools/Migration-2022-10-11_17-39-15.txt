@@ -1,0 +1,9 @@
+Migration Status Report
+  Migrate project: C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\Combat Search and Rescue Tools.csproj
+  Combat Search and Rescue Tools.csproj
+   project folder: 
+   C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\
+   C:\Users\chr10812\Documents\Addins\csar\Combat Search and Rescue Tools\Combat Search and Rescue Tools\
+   language: CS
+   project type: AddIn
+   project has WPF: PresentationFramework

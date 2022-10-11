@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{771ACE14-71E9-4A6F-A17D-7AAF70AFCC59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Combat_Search_and_Rescue_Tools</RootNamespace>
+    <AssemblyName>Combat Search and Rescue Tools</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\ArcGIS\Pro\bin\ArcGISPro.exe</StartProgram>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\ArcGIS\Pro\bin\ArcGISPro.exe</StartProgram>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ArcGISFolder>$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\ESRI\ArcGISPro', 'InstallDir', null, RegistryView.Registry64))</ArcGISFolder>
+    <ArcGISFolder Condition="'$(ArcGISFolder)' == ''">$(registry:HKEY_CURRENT_USER\SOFTWARE\ESRI\ArcGISPro@InstallDir)</ArcGISFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="ArcGIS.Desktop.Framework">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\ArcGIS.Desktop.Framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Core">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\ArcGIS.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Core">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\Extensions\Core\ArcGIS.Desktop.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Mapping">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\Extensions\Mapping\ArcGIS.Desktop.Mapping.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Catalog">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\Extensions\Catalog\ArcGIS.Desktop.Catalog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Editing">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\Extensions\Editing\ArcGIS.Desktop.Editing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Extensions">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\Extensions\DesktopExtensions\ArcGIS.Desktop.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.GeoProcessing">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\Extensions\GeoProcessing\ArcGIS.Desktop.GeoProcessing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Layouts">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\Extensions\Layout\ArcGIS.Desktop.Layouts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Shared.Wpf">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\ArcGIS.Desktop.Shared.Wpf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Ribbon.Wpf">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\ArcGIS.Desktop.Ribbon.Wpf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.DataGrid.Contrib.Wpf">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\ArcGIS.Desktop.DataGrid.Contrib.Wpf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Resources">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\ArcGIS.Desktop.Resources.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Resources">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\ArcGIS.Desktop.Resources.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ItemIndex">
+      <HintPath>C:\Program Files\ArcGIS\Pro\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Config.daml" />
+    <AddInContent Include="Images\AddInDesktop16.png" />
+    <AddInContent Include="Images\AddInDesktop32.png" />
+    <AddInContent Include="DarkImages\AddInDesktop16.png" />
+    <AddInContent Include="DarkImages\AddInDesktop32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CSARToolsModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000001.freelist" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000001.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000001.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000001.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000001.TablesByName.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000002.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000002.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000003.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000003.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000003.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.CatItemsByPhysicalName.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.CatItemsByType.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.FDO_UUID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.freelist" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.horizon" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000004.spx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000005.CatItemTypesByName.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000005.CatItemTypesByParentTypeID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000005.CatItemTypesByUUID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000005.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000005.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000005.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000006.CatRelsByDestinationID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000006.CatRelsByOriginID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000006.CatRelsByType.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000006.FDO_UUID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000006.freelist" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000006.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000006.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000006.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.CatRelTypesByBackwardLabel.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.CatRelTypesByDestItemTypeID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.CatRelTypesByForwardLabel.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.CatRelTypesByName.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.CatRelTypesByOriginItemTypeID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.CatRelTypesByUUID.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000007.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000004f.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000004f.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000004f.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006b.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006b.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006c.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006c.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006d.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006d.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006e.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006e.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006e.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006e.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006e.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006e.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006e.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006f.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000006f.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008a.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008a.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008b.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008b.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008c.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008c.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008d.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008d.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008d.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008d.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008d.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008d.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008d.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008e.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000008e.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000a9.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000a9.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000aa.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000aa.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ab.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ab.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ac.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ac.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ac.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ac.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ac.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ac.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ac.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ad.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ad.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000c8.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000c8.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000c9.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000c9.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ca.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000ca.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cb.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cb.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cb.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cb.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cb.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cb.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cb.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cc.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000000cc.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000142.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000142.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000143.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000143.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000144.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000144.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000145.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000145.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000145.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000145.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000145.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000145.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000145.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000146.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000146.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000161.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000161.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000162.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000162.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000163.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000163.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000164.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000164.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000164.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000164.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000164.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000164.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000164.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000165.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000165.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000180.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000180.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000181.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000181.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000182.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000182.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000183.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000183.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000183.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000183.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000183.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000183.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000183.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000184.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000184.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000019f.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000019f.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a0.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a0.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a1.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a1.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a2.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a2.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a2.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a2.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a2.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a2.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a2.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a3.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001a3.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001be.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001be.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001bf.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001bf.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c0.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c0.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c1.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c1.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c1.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c1.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c1.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c1.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c1.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c2.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001c2.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001dd.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001dd.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001de.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001de.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001df.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001df.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e0.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e0.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e0.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e0.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e0.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e0.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e0.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e1.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001e1.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001fc.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001fc.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001fd.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001fd.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001fe.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001fe.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001ff.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001ff.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001ff.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001ff.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001ff.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001ff.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a000001ff.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000200.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a00000200.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021b.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021b.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021c.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021c.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021d.freelist" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021d.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021d.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021e.band_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021e.blk_key_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021e.col_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021e.gdbindexes" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021e.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021e.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021e.row_index.atx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021f.gdbtable" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\a0000021f.gdbtablx" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\gdb" />
+    <AddInContent Include="Toolboxes\toolboxes\HLZ_Toolbox_Development.gdb\timestamps" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Toolboxes\toolboxes\Combat Search and Rescue %28CSAR%29 Tools.CreateOperationsGraphic.pyt.xml" />
+    <AddInContent Include="Toolboxes\toolboxes\Combat Search and Rescue %28CSAR%29 Tools.DefineAOI.pyt.xml" />
+    <AddInContent Include="Toolboxes\toolboxes\Combat Search and Rescue %28CSAR%29 Tools.DeliberateHLZSuitability.pyt.xml" />
+    <AddInContent Include="Toolboxes\toolboxes\Combat Search and Rescue %28CSAR%29 Tools.FishnetHLZAnalysis.pyt.xml" />
+    <AddInContent Include="Toolboxes\toolboxes\Combat Search and Rescue %28CSAR%29 Tools.HastyHLZSuitability.pyt.xml" />
+    <AddInContent Include="Toolboxes\toolboxes\Combat Search and Rescue %28CSAR%29 Tools.pyt.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Toolboxes\toolboxes\Combat Search and Rescue %28CSAR%29 Tools.pyt" />
+    <AddInContent Include="Toolboxes\toolboxes\label_templates\hlzpoints_mgrs_label.lxp" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\aoi_point.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\aoi_polygon.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\buildings_template.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\deliberate_hlz_points.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\deliberate_hlz_polygons.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\grg_template.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\hlz_polys.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\hlz_raster.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\intersections_template.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\template_aoi.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layer_templates\template_point.lyrx" />
+    <AddInContent Include="Toolboxes\toolboxes\layout_templates\Rescue GRG.pagx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!--
+  PackageAction can be:
+  BuildDefault: ArcGIS Pro is required. An esriAddinX package is created and copied to ArcGIS Pro add-in folder.
+  BuildZipPostProcess: ArcGIS Pro install is NOT required to build the add-in.  An esriAddinX package is created in your output folder.
+  BuildNoPostProcess:  ArcGIS Pro install is NOT required to build the add-in.  An esriAddinX package is NOT created.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PackageAction>BuildDefault</PackageAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PackageAction>BuildDefault</PackageAction>
+  </PropertyGroup>
+  <UsingTask AssemblyFile="C:\Program Files\ArcGIS\Pro\bin\proapp-sdk-MSBuild.dll" TaskName="proapp_sdk_MSBuild.PackageAddIn" />
+  <UsingTask AssemblyFile="C:\Program Files\ArcGIS\Pro\bin\proapp-sdk-MSBuild.dll" TaskName="proapp_sdk_MSBuild.CleanAddIn" />
+  <UsingTask AssemblyFile="C:\Program Files\ArcGIS\Pro\bin\proapp-sdk-MSBuild.dll" TaskName="proapp_sdk_MSBuild.ConvertToRelativePath" />
+  <!--<Import Project="Esri.ArcGISPro.Extensions.targets" Condition="Exists('Esri.ArcGISPro.Extensions.targets')" />-->
+  <Import Project="C:\Program Files\ArcGIS\Pro\bin\Esri.ProApp.SDK.Desktop.targets" Condition="Exists('C:\Program Files\ArcGIS\Pro\bin\Esri.ProApp.SDK.Desktop.targets') AND !Exists('Esri.ArcGISPro.Extensions.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--<Target Name="BeforeBuild">
+    <Error Text="C:\Program Files\ArcGIS\Pro\bin\Esri.ProApp.SDK.Desktop.targets not found." Condition="!Exists('C:\Program Files\ArcGIS\Pro\bin\Esri.ProApp.SDK.Desktop.targets') AND !Exists('Esri.ArcGISPro.Extensions.targets')" />
+  </Target>-->
+</Project>
