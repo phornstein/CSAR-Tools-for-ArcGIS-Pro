@@ -5,20 +5,20 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
 
-  <AddInInfo id="{771ace14-71e9-4a6f-a17d-7aaf70afcc59}" version="1.0" desktopVersion="2.9.32739">
+  <AddInInfo id="{771ace14-71e9-4a6f-a17d-7aaf70afcc59}" version="1.0" desktopVersion="2.9">
     <Name>Combat Search and Rescue Tools</Name>   
     <Description>Combat_Search_and_Rescue_Tools description</Description>
     <Image>Images\AddinDesktop32.png</Image>
     <Author>Esri Defense Solution Engineers</Author>
     <Company>Esri</Company>
     <Date>10/11/2022 2:26:46 PM</Date>
-    <Subject>Framework</Subject>
+    <Subject>Geoprocessing</Subject>
     <!-- Note subject can be one or more of these topics:
                     Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
   </AddInInfo>
 
   <modules>
-    <insertModule id="Combat_Search_and_Rescue_Tools_Module" className="CSARTools" autoLoad="false" caption="CSAR Tools">
+    <insertModule id="Combat_Search_and_Rescue_Tools_Module" className="CSARToolsModule" autoLoad="false" caption="CSAR Tools">
       <!-- uncomment to have the control hosted on a separate tab-->
       <tabs>
         <!--<tab id="Combat_Search_and_Rescue_Tools_Tab1" caption="New Tab">
